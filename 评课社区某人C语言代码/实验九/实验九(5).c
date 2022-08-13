@@ -1,0 +1,21 @@
+#include<stdio.h>
+struct student
+{	char id[20];
+	char name[10];
+	float grade[3];
+	float ave; 
+}stu[5],temp; 
+main()
+{	int i,j;
+	FILE *fp=fopen("stu_sort","r"); 
+	if(fp!=NULL) 
+	{ 	for(i=0;i<5;i++)
+			fscanf(fp,"%s %s %f%f%f%f",stu[i].id,stu[i].name,&stu[i].grade[0],&stu[i].grade[1],&stu[i].grade[2],&stu[i].ave); 
+		fclose(fp);
+	}
+	else 
+	{printf("Can not find the stu_sort");exit(0);
+	} 
+	for(i=0;i<5;i++)
+		printf("%s %s %f %f %f %f\n",stu[i].id,stu[i].name,stu[i].grade[0],stu[i].grade[1],stu[i].grade[2],stu[i].ave);
+} 
